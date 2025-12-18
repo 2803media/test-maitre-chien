@@ -182,7 +182,7 @@ export default function QuizQuestion({
             // CORRECTION ICI :
             // 1. "bg-gradient-to-r" au lieu de "bg-linear-to-r"
             // 2. Utilisation de couleurs sûres (indigo) ou assurez-vous que primary-400 existe
-            className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full origin-left"
+            className="h-full bg-linear-to-r from-indigo-500 to-purple-600 rounded-full origin-left"
             // Ajout de 'initial' pour éviter les glitchs au chargement
             initial={{ scaleX: 0 }}
             animate={{ scaleX: progress / 100 }}

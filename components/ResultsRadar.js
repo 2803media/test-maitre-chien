@@ -10,9 +10,22 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { User, Dog } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function ResultsRadar({ results, onRestart }) {
   const { axisResults, overallScore, interpretation } = results;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Prepare data for radar chart
   const chartData = axisResults.map((result) => ({
@@ -71,15 +84,19 @@ export default function ResultsRadar({ results, onRestart }) {
         </div>
 
         {/* Radar chart */}
-        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 mb-8 border border-gray-200 dark:border-gray-700">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-6 text-center">
+        <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-4 md:p-8 mb-8 border border-gray-200 dark:border-gray-700">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4 md:mb-6 text-center">
             Profil de Personnalité
           </h3>
-          <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-2xl p-8 shadow-inner">
-            <ResponsiveContainer width="100%" height={650}>
+          <div className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-2xl p-4 md:p-8 shadow-inner">
+            <ResponsiveContainer width="100%" height={isMobile ? 400 : 550}>
               <RadarChart
                 data={chartData}
-                margin={{ top: 60, right: 120, bottom: 60, left: 120 }}
+                margin={
+                  isMobile
+                    ? { top: 30, right: 30, bottom: 30, left: 30 }
+                    : { top: 60, right: 120, bottom: 60, left: 120 }
+                }
               >
                 <defs>
                   <linearGradient
@@ -106,14 +123,8 @@ export default function ResultsRadar({ results, onRestart }) {
                 <PolarAngleAxis
                   dataKey="axis"
                   tick={({ payload, x, y, textAnchor, cx, cy }) => {
-                    // 1. Définir l'espacement souhaité en pixels
-                    const offset = 20;
-
-                    // 2. Calculer l'angle entre le centre et le point actuel
-                    // Recharts fournit cx et cy (le centre du graphique)
+                    const offset = isMobile ? 12 : 25;
                     const angle = Math.atan2(y - cy, x - cx);
-
-                    // 3. Calculer les nouvelles coordonnées avec l'offset
                     const xWithOffset = x + Math.cos(angle) * offset;
                     const yWithOffset = y + Math.sin(angle) * offset;
 
@@ -125,7 +136,7 @@ export default function ResultsRadar({ results, onRestart }) {
                           textAnchor={textAnchor}
                           className="fill-gray-700 dark:fill-gray-200"
                           style={{
-                            fontSize: "14px",
+                            fontSize: isMobile ? "11px" : "14px",
                             fontWeight: 600,
                             textShadow: "0 1px 2px rgba(0,0,0,0.1)",
                           }}
@@ -145,7 +156,10 @@ export default function ResultsRadar({ results, onRestart }) {
                       y={y}
                       textAnchor="middle"
                       className="fill-gray-500 dark:fill-gray-400"
-                      style={{ fontSize: "11px", fontWeight: 500 }}
+                      style={{
+                        fontSize: isMobile ? "9px" : "11px",
+                        fontWeight: 500,
+                      }}
                     >
                       {payload.value}
                     </text>
@@ -159,37 +173,43 @@ export default function ResultsRadar({ results, onRestart }) {
                   dataKey="Maître"
                   stroke="#818cf8"
                   fill="url(#masterGradient)"
-                  strokeWidth={3}
+                  strokeWidth={isMobile ? 2.5 : 3}
                   dot={{
                     fill: "#818cf8",
-                    r: 5,
-                    strokeWidth: 2.5,
+                    r: isMobile ? 3.5 : 5,
+                    strokeWidth: isMobile ? 1.5 : 2.5,
                     stroke: "#fff",
                   }}
-                  activeDot={{ r: 7, strokeWidth: 3 }}
+                  activeDot={{
+                    r: isMobile ? 5 : 7,
+                    strokeWidth: isMobile ? 2 : 3,
+                  }}
                 />
                 <Radar
                   name="Chien"
                   dataKey="Chien"
                   stroke="#f472b6"
                   fill="url(#dogGradient)"
-                  strokeWidth={3}
+                  strokeWidth={isMobile ? 2.5 : 3}
                   dot={{
                     fill: "#f472b6",
-                    r: 5,
-                    strokeWidth: 2.5,
+                    r: isMobile ? 3.5 : 5,
+                    strokeWidth: isMobile ? 1.5 : 2.5,
                     stroke: "#fff",
                   }}
-                  activeDot={{ r: 7, strokeWidth: 3 }}
+                  activeDot={{
+                    r: isMobile ? 5 : 7,
+                    strokeWidth: isMobile ? 2 : 3,
+                  }}
                 />
                 <Legend
                   wrapperStyle={{
-                    paddingTop: "32px",
-                    fontSize: "15px",
+                    paddingTop: isMobile ? "20px" : "32px",
+                    fontSize: isMobile ? "13px" : "15px",
                     fontWeight: 700,
                   }}
                   iconType="circle"
-                  iconSize={14}
+                  iconSize={isMobile ? 10 : 14}
                   formatter={(value) => (
                     <span className="text-gray-700 dark:text-gray-200">
                       {value}
