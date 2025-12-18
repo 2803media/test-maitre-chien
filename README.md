@@ -103,7 +103,7 @@ npm run dev
 
 ### Test de compatibilité
 
-- ✅ Sélection du profil (Homme/Femme/Neutre)
+- ✅ Sélection du profil (Homme/Femme)
 - ✅ 28 questions adaptatives selon le genre
 - ✅ Affichage progressif des questions
 - ✅ Barre de progression en temps réel
@@ -118,12 +118,11 @@ npm run dev
 - ✅ Compatibilité détaillée par axe (14 axes)
 - ✅ Code couleur (vert/jaune/rouge)
 - ✅ Emojis selon le niveau
-- ✅ Impression des résultats
 - ✅ Recommencer le test
 
 ## 👥 Auteurs
 
-- **2803 MEDIA** - [Site web](https://www.2803.media/)
+- **2803 MEDIA** - [Site web](https://2803media.fr)
 
 ## 🤝 Contribuer
 
