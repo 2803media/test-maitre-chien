@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,14 +14,32 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen flex flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem={false}
         >
-          <ThemeToggle />
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <ThemeToggle />
+            <main className="flex-1">{children}</main>
+            <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-4">
+              <div className="container mx-auto px-4 text-center">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  &copy; {new Date().getFullYear()}{" "}
+                  <Link
+                    href="https://2803media.fr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
+                  >
+                    - 2803 MEDIA
+                  </Link>{" "}
+                  - Tous droits réservés
+                </p>
+              </div>
+            </footer>
+          </div>
         </ThemeProvider>
       </body>
     </html>

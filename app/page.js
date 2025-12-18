@@ -159,52 +159,54 @@ export default function Home() {
 
   // Afficher l'étape appropriée
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <AnimatePresence mode="wait">
-        {stage === "gender" ? (
-          <motion.div
-            key="gender-selection"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={variants}
-            className="w-full max-w-md"
-          >
-            <GenderSelection onSelect={handleGenderSelect} />
-          </motion.div>
-        ) : stage === "results" && formattedResults ? (
-          <motion.div
-            key="results"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={variants}
-            className="w-full max-w-4xl"
-          >
-            <ResultsRadar
-              results={formattedResults}
-              onRestart={handleRestart}
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            key={`${stage}-${currentQuestionIndex}`}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={variants}
-            className="w-full max-w-2xl"
-          >
-            <QuizQuestion
-              question={currentQuestions[currentQuestionIndex]}
-              questionNumber={currentQuestionIndex + 1}
-              totalQuestions={currentQuestions.length}
-              onAnswer={handleAnswer}
-              role={stage} // 'master' ou 'dog'
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="page-container min-h-[calc(100vh-4rem)]">
+      <div className="h-full flex items-center justify-center p-4">
+        <AnimatePresence mode="wait">
+          {stage === "gender" ? (
+            <motion.div
+              key="gender-selection"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={variants}
+              className="w-full max-w-md"
+            >
+              <GenderSelection onSelect={handleGenderSelect} />
+            </motion.div>
+          ) : stage === "results" && formattedResults ? (
+            <motion.div
+              key="results"
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={variants}
+              className="w-full max-w-4xl"
+            >
+              <ResultsRadar
+                results={formattedResults}
+                onRestart={handleRestart}
+              />
+            </motion.div>
+          ) : (
+            <motion.div
+              key={`${stage}-${currentQuestionIndex}`}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={variants}
+              className="w-full max-w-2xl"
+            >
+              <QuizQuestion
+                question={currentQuestions[currentQuestionIndex]}
+                questionNumber={currentQuestionIndex + 1}
+                totalQuestions={currentQuestions.length}
+                onAnswer={handleAnswer}
+                role={stage} // 'master' ou 'dog'
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
