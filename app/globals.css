@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+:root {
+  /* Couleurs de base plus contrastées */
+  --background: 0 0% 100%;
+  --foreground: 220 18% 10%; /* Texte plus foncé pour un meilleur contraste */
+
+  /* Couleurs principales */
+  --primary: 221.2 83.2% 53.3%;
+  --primary-foreground: 210 40% 98%;
+
+  /* Secondaires et accents */
+  --secondary: 220 14% 96%; /* Fond secondaire légèrement plus contrasté */
+  --secondary-foreground: 220 18% 20%;
+  --muted: 220 10% 97%;
+  --muted-foreground: 220 8% 46%; /* Texte secondaire plus lisible */
+  --accent: 220 14% 96%;
+  --accent-foreground: 220 18% 20%;
+
+  /* Bordures et coins arrondis */
+  --border: 220 13% 87%; /* Bordure plus visible */
+  --radius: 0.75rem;
+
+  /* Surbrillance de sélection */
+  --selection: 221.2 83.2% 53.3%;
+  --selection-foreground: 210 40% 98%;
+
+  /* Nouvelles variables pour les cartes et surfaces */
+  --card: 0 0% 100%;
+  --card-foreground: 220 18% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 18% 10%;
+
+  /* États */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+}
+
+.dark {
+  --background: 222.2 84% 4%; /* Fond légèrement plus foncé */
+  --foreground: 210 40% 98%;
+
+  /* Couleurs principales plus vives */
+  --primary: 217.2 91.2% 70%;
+  --primary-foreground: 222.2 47.4% 11.2%;
+
+  /* Meilleur contraste pour les éléments secondaires */
+  --secondary: 217.2 32.6% 17%;
+  --secondary-foreground: 210 40% 98%;
+
+  /* Texte secondaire plus lisible */
+  --muted: 217.2 32.6% 17%;
+  --muted-foreground: 215 20.2% 80%;
+
+  /* Accents et bordures plus visibles */
+  --accent: 217.2 32.6% 22%;
+  --accent-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 30%;
+
+  /* Nouvelles variables pour les cartes et surfaces */
+  --card: 222.2 84% 5%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 5%;
+  --popover-foreground: 210 40% 98%;
+
+  /* États */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+}
+
+* {
+  border-color: hsl(var(--border));
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(
+    135deg,
+    hsl(210, 40%, 98%) 0%,
+    hsl(220, 20%, 99%) 50%,
+    hsl(230, 40%, 98%) 100%
+  );
+  color: hsl(var(--foreground));
+  min-height: 100vh;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  line-height: 1.6;
+}
+
+.dark body {
+  background: linear-gradient(
+    135deg,
+    hsl(222, 47%, 11%) 0%,
+    hsl(220, 35%, 10%) 50%,
+    hsl(222, 47%, 11%) 100%
+  );
+}
+
+/* Amélioration de la sélection de texte */
+::selection {
+  background-color: hsl(var(--selection));
+  color: hsl(var(--selection-foreground));
+}
+
+/* Amélioration des liens */
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Amélioration des boutons */
+button {
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Amélioration des champs de formulaire */
+input,
+textarea,
+select {
+  background-color: hsl(var(--background));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.4s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
+}

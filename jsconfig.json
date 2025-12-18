@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/lib/*": ["lib/*"],
+      "@/components/*": ["components/*"],
+      "@/utils/*": ["utils/*"],
+      "@/styles/*": ["styles/*"],
+      "@/public/*": ["public/*"],
+      "@/app/*": ["app/*"],
+      "@/pages/*": ["pages/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/api/*": ["app/api/*"],
+      "@/store/*": ["store/*"],
+      "@/contexts/*": ["contexts/*"],
+      "@/data/*": ["data/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
