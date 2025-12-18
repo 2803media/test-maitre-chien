@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import Script from "next/script";
 import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
 import MeshGradientBackground from "@/components/MeshGradientBackground";
@@ -10,6 +11,21 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Test Maître-Chien - Compatibilité",
   description: "Découvrez la compatibilité entre vous et votre chien",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#111827" },
+  ],
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }) {
@@ -41,6 +57,12 @@ export default function RootLayout({ children }) {
                 </p>
               </div>
             </footer>
+            <Script
+              defer
+              data-domain="dog.2803.ovh"
+              src="https://analytics.2803media.fr/js/script.js"
+              strategy="afterInteractive"
+            />
           </div>
         </ThemeProvider>
       </body>
