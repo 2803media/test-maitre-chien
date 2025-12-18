@@ -235,7 +235,7 @@ npm run build
 npm start
 ```
 
-Puis configure ton serveur web pour pointer vers le port 3000.
+Puis configure ton serveur web pour pointer vers le port 3010.
 
 ## 🐛 Dépannage
 
@@ -260,10 +260,10 @@ Puis configure ton serveur web pour pointer vers le port 3000.
 
 Pour toute question ou problème, veuillez ouvrir une [issue](https://github.com/2803media/test-maitre-chien/issues).
 
-### Port 3000 déjà utilisé
+### Port 3010 déjà utilisé
 
 ```bash
-npm run dev -- -p 3001
+npm run dev -- -p 3011
 ```
 
 ### Erreur "Module not found"
