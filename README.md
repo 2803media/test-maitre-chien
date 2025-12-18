@@ -1,4 +1,15 @@
+<div align="center">
+
 # 🐕 Test de Compatibilité Maître & Chien - Next.js
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-13+-black?logo=next.js&logoColor=white)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-18+-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0+-06B6D4?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+</div>
+
+> Une application moderne pour évaluer la compatibilité entre un maître et son chien, construite avec Next.js 13+ et Tailwind CSS.
 
 Application Next.js moderne pour évaluer la compatibilité entre un maître et son chien.
 
@@ -36,7 +47,26 @@ test-chien-nextjs/
     └── .gitignore             # Fichiers à ignorer
 ```
 
-## 🚀 Installation et lancement
+## Dépendances
+
+### Production
+
+- **next** (^16.0.10) - Framework React
+- **react** (^19.2.2) - Bibliothèque UI
+- **react-dom** (^19.2.2) - React DOM
+- **recharts** (^3.6.0) - Bibliothèque de graphiques
+- **lucide-react** (^0.562.0) - Icônes SVG (1000+)
+- **next-themes** (^0.4.6) - Gestion du dark mode
+
+### Développement
+
+- **tailwindcss** (^4.0.0) - Framework CSS utility-first
+- **autoprefixer** (^10.4.18) - Préfixes CSS automatiques
+- **postcss** (^8.4.35) - Transformation CSS
+- **eslint** (^9.39.1) - Linter JavaScript
+- **eslint-config-next** (^16.0.9) - Configuration ESLint pour Next.js
+
+## 🚀 Installation et démarrage rapide
 
 ### Prérequis
 
@@ -59,27 +89,6 @@ npm run dev
 # 4. Ouvrir dans le navigateur
 # → http://localhost:3000
 ```
-
-## 📦 Dépendances installées
-
-Lors de `npm install`, les packages suivants seront installés :
-
-### Production
-
-- **next** (^16.0.10) - Framework React
-- **react** (^19.2.2) - Bibliothèque UI
-- **react-dom** (^19.2.2) - React DOM
-- **recharts** (^3.6.0) - Bibliothèque de graphiques
-- **lucide-react** (^0.562.0) - Icônes SVG (1000+)
-- **next-themes** (^0.4.6) - Gestion du dark mode
-
-### Développement
-
-- **tailwindcss** (^4.0.0) - Framework CSS utility-first
-- **autoprefixer** (^10.4.18) - Préfixes CSS automatiques
-- **postcss** (^8.4.35) - Transformation CSS
-- **eslint** (^9.39.1) - Linter JavaScript
-- **eslint-config-next** (^16.0.9) - Configuration ESLint pour Next.js
 
 ## ✨ Fonctionnalités
 
@@ -112,6 +121,37 @@ Lors de `npm install`, les packages suivants seront installés :
 - ✅ Impression des résultats
 - ✅ Recommencer le test
 
+## 👥 Auteurs
+
+- **2803 MEDIA** - [Site web](https://www.2803.media/)
+
+## 🤝 Contribuer
+
+Les contributions sont les bienvenues ! Voici comment contribuer :
+
+1. Forkez le projet
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
+3. Committez vos changements (`git commit -m 'Ajouter une fonctionnalité incroyable'`)
+4. Poussez vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
+## 📝 Licence
+
+Ce projet est sous licence MIT - voir le fichier [LICENCE](LICENCE) pour plus de détails.
+
+## 🙏 Remerciements
+
+- Icônes par [Lucide](https://lucide.dev/)
+- Graphiques avec [Recharts](https://recharts.org/)
+
+## 🚀 Évolution future
+
+- [ ] Ajouter plus de questions
+- [ ] Implémenter l'authentification
+- [ ] Sauvegarder les résultats
+- [ ] Ajouter des statistiques globales
+- [ ] Version multilingue
+
 ## 🎯 Scripts disponibles
 
 ```bash
@@ -124,22 +164,6 @@ npm start            # Lancer en mode production
 
 # Qualité du code
 npm run lint         # Vérifier le code avec ESLint
-```
-
-## 🎨 Personnalisation
-
-### Changer les couleurs
-
-Éditez `tailwind.config.js` :
-
-```javascript
-colors: {
-  primary: {
-    500: '#f37e3c',  // Couleur principale
-    600: '#e45f23',  // Plus foncé
-    // ...
-  }
-}
 ```
 
 ### Ajouter des questions
@@ -214,6 +238,27 @@ npm start
 Puis configure ton serveur web pour pointer vers le port 3000.
 
 ## 🐛 Dépannage
+
+### Problèmes courants
+
+1. **Erreurs de dépendances**
+
+   ```bash
+   rm -rf node_modules package-lock.json
+   npm install
+   ```
+
+2. **Erreurs de compilation**
+   - Vérifiez la version de Node.js (18+ requise)
+   - Exécutez `npm run lint` pour identifier les problèmes
+
+3. **Problèmes de style**
+   - Vérifiez que Tailwind est correctement configuré
+   - Exécutez `npx tailwindcss -i ./app/globals.css -o ./app/output.css --watch`
+
+## 📞 Support
+
+Pour toute question ou problème, veuillez ouvrir une [issue](https://github.com/2803media/test-maitre-chien/issues).
 
 ### Port 3000 déjà utilisé
 
