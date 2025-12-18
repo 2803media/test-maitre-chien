@@ -2,15 +2,16 @@
 
 import { useState } from "react";
 import { formatQuestion } from "@/utils/questionFormatter";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { User, Dog } from "lucide-react";
 
-// Composants d'icônes SVG
+/* =========================
+   Icônes SVG
+========================= */
+
 const SmileIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -29,8 +30,6 @@ const SmileIcon = (props) => (
 const MehIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -49,8 +48,6 @@ const MehIcon = (props) => (
 const FrownIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -66,20 +63,24 @@ const FrownIcon = (props) => (
   </svg>
 );
 
+/* =========================
+   Composant principal
+========================= */
+
 export default function QuizQuestion({
   question: originalQuestion,
   questionNumber,
   totalQuestions,
   onAnswer,
-  role, // 'master' ou 'dog'
+  role, // "master" | "dog"
 }) {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // Formater la question en fonction du rôle
   const question = formatQuestion(originalQuestion, role);
 
-  // Options de réponse avec icônes SVG
+  const progress = Math.round((questionNumber / totalQuestions) * 100);
+
   const answerOptions = [
     {
       value: 1,
@@ -115,8 +116,6 @@ export default function QuizQuestion({
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -140,120 +139,93 @@ export default function QuizQuestion({
     setSelectedAnswer(value);
     setIsAnimating(true);
 
-    // Délai pour permettre l'animation avant de passer à la question suivante
     setTimeout(() => {
       onAnswer(value);
       setSelectedAnswer(null);
       setIsAnimating(false);
-    }, 500);
-  };
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      transition: { duration: 0.3 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3 },
-    },
+    }, 400);
   };
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 w-full max-w-4xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        className="w-full"
-      >
-        {/* En-tête */}
-        <div className="mb-6">
-          <div className="flex justify-between items-center mb-4">
-            <span className="text-sm font-medium text-primary-600 dark:text-primary-400">
-              Question {questionNumber} sur {totalQuestions}
+      {/* Header */}
+      <div className="mb-6">
+        <div className="flex justify-between items-center mb-4">
+          <span className="text-sm font-medium text-primary-600 dark:text-primary-400">
+            Question {questionNumber} sur {totalQuestions}
+          </span>
+
+          <span className="inline-flex items-center gap-1 text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">
+            {role === "master" ? (
+              <>
+                <User className="w-4 h-4 text-indigo-600" />
+                Maître
+              </>
+            ) : (
+              <>
+                <Dog className="w-4 h-4 text-amber-600" />
+                Chien
+              </>
+            )}
+          </span>
+        </div>
+
+        {/* Progress bar */}
+        <div
+          className="h-2 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden"
+          role="progressbar"
+          aria-valuenow={progress}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
+          <motion.div
+            // CORRECTION ICI :
+            // 1. "bg-gradient-to-r" au lieu de "bg-linear-to-r"
+            // 2. Utilisation de couleurs sûres (indigo) ou assurez-vous que primary-400 existe
+            className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full origin-left"
+            // Ajout de 'initial' pour éviter les glitchs au chargement
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: progress / 100 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          />
+        </div>
+
+        <p className="text-xs text-gray-500 mt-1 text-right">{progress} %</p>
+      </div>
+
+      {/* Question */}
+      <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+        {question.text}
+      </h2>
+
+      {/* Réponses */}
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+        {answerOptions.map((option) => (
+          <motion.button
+            key={option.value}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            disabled={isAnimating}
+            onClick={() => handleAnswerSelect(option.value)}
+            className={`p-4 rounded-xl flex flex-col items-center justify-center transition-all ${
+              selectedAnswer === option.value
+                ? "ring-2 ring-primary scale-105 shadow-md"
+                : ""
+            } ${option.color}`}
+          >
+            {option.icon}
+            <span className="mt-2 text-sm font-medium text-center">
+              {option.label}
             </span>
-            <span className="inline-flex items-center gap-1 text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-gray-600 dark:text-gray-300">
-              {role === "master" ? (
-                <>
-                  <User className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
-                  <span>Maître</span>
-                </>
-              ) : (
-                <>
-                  <Dog className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                  <span>Chien</span>
-                </>
-              )}
-            </span>
-          </div>
+          </motion.button>
+        ))}
+      </div>
 
-          <div className="h-2 w-full bg-gray-100 dark:bg-gray-700 rounded-full overflow-hidden">
-            <motion.div
-              className="h-full bg-linear-to-r from-primary-400 to-primary-600 rounded-full"
-              initial={{ width: 0 }}
-              animate={{ width: `${(questionNumber / totalQuestions) * 100}%` }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            />
-          </div>
-        </div>
-
-        {/* Question */}
-        <div className="mb-8">
-          <h2 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white mb-6 leading-relaxed">
-            {question.text}
-          </h2>
-        </div>
-
-        {/* Options de réponse */}
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 mt-6">
-          {answerOptions.map((option) => (
-            <motion.button
-              key={option.value}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => handleAnswerSelect(option.value)}
-              disabled={isAnimating}
-              className={`p-4 rounded-xl transition-all duration-200 flex flex-col items-center justify-center ${
-                selectedAnswer === option.value
-                  ? "ring-2 ring-offset-2 ring-primary transform scale-105 shadow-md"
-                  : ""
-              } ${option.color} h-full`}
-            >
-              <div className="mb-2">{option.icon}</div>
-              <span className="text-sm font-medium text-center">
-                {option.label}
-              </span>
-            </motion.button>
-          ))}
-        </div>
-
-        {/* Indicateur de progression */}
-        <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500 dark:text-gray-400">
-            {role === "master"
-              ? "Répondez honnêtement pour obtenir des résultats précis."
-              : "Répondez comme vous pensez que votre chien répondrait."}
-          </p>
-        </div>
-      </motion.div>
+      <p className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
+        {role === "master"
+          ? "Répondez honnêtement."
+          : "Répondez comme votre chien le ferait."}
+      </p>
     </div>
   );
 }
