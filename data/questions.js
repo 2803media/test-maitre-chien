@@ -13,7 +13,7 @@ export const QUESTIONS = [
     id: 2,
     axis: "Énergie",
     text: {
-      master: "Avez-vous du mal à rester calme plus de 30 minutes ?",
+      master: "Avez-vous du mal à rester calme plus de quelques minutes ?",
       dog: "Votre chien a-t-il du mal à rester calme plus de 30 minutes ?",
     },
     icon: "Zap",
@@ -54,7 +54,7 @@ export const QUESTIONS = [
     id: 6,
     axis: "Stress",
     text: {
-      master: "Avez-vous du mal à vous calmer après une période d'excitation ?",
+      master: "Avez-vous du mal à vous calmer après une période de stress ?",
       dog: "Votre chien a-t-il du mal à se calmer après une période d'excitation ?",
     },
     icon: "Wind",
@@ -64,7 +64,8 @@ export const QUESTIONS = [
     id: 7,
     axis: "Curiosité",
     text: {
-      master: "Aimez-vous explorer de nouveaux environnements ?",
+      master:
+        "Aimez-vous explorer de nouveaux environnements, des nouveaux endroits ?",
       dog: "Votre chien aime-t-il explorer de nouveaux environnements ?",
     },
     icon: "Compass",
@@ -145,7 +146,7 @@ export const QUESTIONS = [
     id: 15,
     axis: "Sensibilité",
     text: {
-      master: "Êtes-vous facilement perturbé(e) par les bruits forts ?",
+      master: "Êtes-vous facilement perturbé(e) par des éléments externes ?",
       dog: "Votre chien est-il facilement perturbé par les bruits forts ?",
     },
     icon: "Volume2",
@@ -155,8 +156,7 @@ export const QUESTIONS = [
     id: 16,
     axis: "Sensibilité",
     text: {
-      master:
-        "Réagissez-vous fortement aux mouvements rapides ou aux stimuli visuels ?",
+      master: "Réagissez-vous fortement à l'agitation autour de vous ?",
       dog: "Votre chien réagit-il fortement aux mouvements rapides ou aux stimuli visuels ?",
     },
     icon: "Eye",
@@ -166,7 +166,7 @@ export const QUESTIONS = [
     id: 17,
     axis: "Motivation",
     text: {
-      master: "Êtes-vous motivé(e) par les récompenses ou la nourriture ?",
+      master: "Êtes-vous motivé(e) par les récompenses ?",
       dog: "Votre chien est-il très motivé par la nourriture ou les récompenses ?",
     },
     icon: "Cookie",
@@ -176,8 +176,7 @@ export const QUESTIONS = [
     id: 18,
     axis: "Motivation",
     text: {
-      master:
-        "Préférez-vous les activités ludiques aux récompenses alimentaires ?",
+      master: "Préférez-vous les activités ludiques aux moments de repas ?",
       dog: "Votre chien préfère-t-il les jeux aux friandises ?",
     },
     icon: "Gamepad2",
@@ -209,7 +208,7 @@ export const QUESTIONS = [
     id: 21,
     axis: "Patience",
     text: {
-      master: "Savez-vous attendre calmement sans vous impatiente ?",
+      master: "Savez-vous attendre calmement sans vous impatienter ?",
       dog: "Votre chien sait-il attendre calmement sans s'impatienter ?",
     },
     icon: "Clock",
