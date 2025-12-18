@@ -9,7 +9,7 @@
 
 </div>
 
-> Une application moderne pour évaluer la compatibilité entre un maître et son chien, construite avec Next.js 13+ et Tailwind CSS.
+> Une application moderne pour évaluer la compatibilité entre un maître et son chien, construite avec Next.js 16+ et Tailwind CSS.
 
 Application Next.js moderne pour évaluer la compatibilité entre un maître et son chien.
 
