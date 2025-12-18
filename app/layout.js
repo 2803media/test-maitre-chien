@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
+import MeshGradientBackground from "@/components/MeshGradientBackground";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,10 +21,11 @@ export default function RootLayout({ children }) {
           defaultTheme="light"
           enableSystem={false}
         >
-          <div className="flex flex-col min-h-screen">
-            <ThemeToggle />
-            <main className="flex-1">{children}</main>
-            <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 py-4">
+          <div className="flex flex-col min-h-screen relative">
+            <MeshGradientBackground />
+            <ThemeToggle className="relative z-10" />
+            <main className="flex-1 relative z-10">{children}</main>
+            <footer className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 py-4 relative z-10">
               <div className="container mx-auto px-4 text-center">
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   &copy; {new Date().getFullYear()}{" "}

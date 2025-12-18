@@ -1,4 +1,7 @@
 export const QUESTIONS = [
+  // === QUESTIONS ESSENTIELLES (12 questions au lieu de 28) ===
+
+  // Énergie (1 question au lieu de 2)
   {
     id: 1,
     axis: "Énergie",
@@ -9,18 +12,10 @@ export const QUESTIONS = [
     icon: "Zap",
     genre: "all",
   },
+
+  // Sociabilité (1 question au lieu de 2)
   {
     id: 2,
-    axis: "Énergie",
-    text: {
-      master: "Avez-vous du mal à rester calme plus de quelques minutes ?",
-      dog: "Votre chien a-t-il du mal à rester calme plus de 30 minutes ?",
-    },
-    icon: "Zap",
-    genre: "all",
-  },
-  {
-    id: 3,
     axis: "Sociabilité",
     text: {
       master: "Appréciez-vous rencontrer de nouvelles personnes ?",
@@ -30,18 +25,9 @@ export const QUESTIONS = [
     genre: "all",
   },
 
+  // Stress (1 question au lieu de 2)
   {
-    id: 4,
-    axis: "Sociabilité",
-    text: {
-      master: "Recherchez-vous spontanément le contact physique ?",
-      dog: "Votre chien recherche-t-il spontanément le contact physique ?",
-    },
-    icon: "Heart",
-    genre: "all",
-  },
-  {
-    id: 5,
+    id: 3,
     axis: "Stress",
     text: {
       master: "Réagissez-vous fortement aux imprévus ou changements ?",
@@ -50,18 +36,10 @@ export const QUESTIONS = [
     icon: "AlertCircle",
     genre: "all",
   },
+
+  // Curiosité (1 question au lieu de 2)
   {
-    id: 6,
-    axis: "Stress",
-    text: {
-      master: "Avez-vous du mal à vous calmer après une période de stress ?",
-      dog: "Votre chien a-t-il du mal à se calmer après une période d'excitation ?",
-    },
-    icon: "Wind",
-    genre: "all",
-  },
-  {
-    id: 7,
+    id: 4,
     axis: "Curiosité",
     text: {
       master:
@@ -72,28 +50,9 @@ export const QUESTIONS = [
     genre: "all",
   },
 
+  // Discipline (1 question au lieu de 2)
   {
-    id: 8,
-    axis: "Curiosité",
-    text: {
-      master: "Vous lassez-vous facilement de la routine ?",
-      dog: "Votre chien s'ennuie-t-il facilement avec la routine ?",
-    },
-    icon: "RefreshCw",
-    genre: "all",
-  },
-  {
-    id: 9,
-    axis: "Discipline",
-    text: {
-      master: "Respectez-vous facilement les règles établies ?",
-      dog: "Votre chien respecte-t-il facilement les règles établies ?",
-    },
-    icon: "CheckSquare",
-    genre: "all",
-  },
-  {
-    id: 10,
+    id: 5,
     axis: "Discipline",
     text: {
       master: "Avez-vous tendance à tester les limites ?",
@@ -102,8 +61,10 @@ export const QUESTIONS = [
     icon: "TrendingUp",
     genre: "all",
   },
+
+  // Attachement (1 question au lieu de 2)
   {
-    id: 11,
+    id: 6,
     axis: "Attachement",
     text: {
       master: "Supportez-vous mal la solitude ou la séparation ?",
@@ -112,18 +73,10 @@ export const QUESTIONS = [
     icon: "HeartCrack",
     genre: "all",
   },
+
+  // Leadership (1 question au lieu de 2)
   {
-    id: 12,
-    axis: "Attachement",
-    text: {
-      master: "Êtes-vous sensible aux émotions des autres ?",
-      dog: "Votre chien est-il sensible à vos émotions ?",
-    },
-    icon: "HeartHandshake",
-    genre: "all",
-  },
-  {
-    id: 13,
+    id: 7,
     axis: "Leadership",
     text: {
       master: "Prenez-vous naturellement des initiatives ?",
@@ -132,18 +85,10 @@ export const QUESTIONS = [
     icon: "Flag",
     genre: "all",
   },
+
+  // Sensibilité (1 question au lieu de 2)
   {
-    id: 14,
-    axis: "Leadership",
-    text: {
-      master: "Avez-vous tendance à vouloir diriger ou guider les autres ?",
-      dog: "Votre chien a-t-il tendance à vouloir diriger ou guider ?",
-    },
-    icon: "Crown",
-    genre: "all",
-  },
-  {
-    id: 15,
+    id: 8,
     axis: "Sensibilité",
     text: {
       master: "Êtes-vous facilement perturbé(e) par des éléments externes ?",
@@ -152,18 +97,10 @@ export const QUESTIONS = [
     icon: "Volume2",
     genre: "all",
   },
+
+  // Motivation (1 question au lieu de 2)
   {
-    id: 16,
-    axis: "Sensibilité",
-    text: {
-      master: "Réagissez-vous fortement à l'agitation autour de vous ?",
-      dog: "Votre chien réagit-il fortement aux mouvements rapides ou aux stimuli visuels ?",
-    },
-    icon: "Eye",
-    genre: "all",
-  },
-  {
-    id: 17,
+    id: 9,
     axis: "Motivation",
     text: {
       master: "Êtes-vous motivé(e) par les récompenses ?",
@@ -172,29 +109,10 @@ export const QUESTIONS = [
     icon: "Cookie",
     genre: "all",
   },
+
+  // Réactivité (1 question au lieu de 2)
   {
-    id: 18,
-    axis: "Motivation",
-    text: {
-      master: "Préférez-vous les activités ludiques aux moments de repas ?",
-      dog: "Votre chien préfère-t-il les jeux aux friandises ?",
-    },
-    icon: "Gamepad2",
-    genre: "all",
-  },
-  {
-    id: 19,
-    axis: "Réactivité",
-    text: {
-      master:
-        "Êtes-vous excité(e) à l'idée de rencontrer de nouvelles personnes ou animaux ?",
-      dog: "Votre chien montre-t-il de l'excitation face aux autres animaux ?",
-    },
-    icon: "Sparkles",
-    genre: "all",
-  },
-  {
-    id: 20,
+    id: 10,
     axis: "Réactivité",
     text: {
       master:
@@ -204,87 +122,29 @@ export const QUESTIONS = [
     icon: "Flame",
     genre: "all",
   },
+
+  // Empathie (1 question au lieu de 2)
   {
-    id: 21,
-    axis: "Patience",
-    text: {
-      master: "Savez-vous attendre calmement sans vous impatienter ?",
-      dog: "Votre chien sait-il attendre calmement sans s'impatienter ?",
-    },
-    icon: "Clock",
-    genre: "femme",
-  },
-  {
-    id: 22,
-    axis: "Patience",
-    text: {
-      master: "Restez-vous calme face aux comportements répétitifs ?",
-      dog: "Votre chien reste-t-il calme face aux comportements répétitifs ?",
-    },
-    icon: "BellRing",
-    genre: "femme",
-  },
-  {
-    id: 23,
-    axis: "Communication",
-    text: {
-      master: "Êtes-vous attentif(ve) aux signaux non-verbaux des autres ?",
-      dog: "Votre chien capte-t-il facilement vos signaux non-verbaux ?",
-    },
-    icon: "MessageCircle",
-    genre: "femme",
-  },
-  {
-    id: 24,
-    axis: "Communication",
-    text: {
-      master: "Privilégiez-vous la douceur à la fermeté dans vos relations ?",
-      dog: "Votre chien répond-il mieux à la douceur qu'à la fermeté ?",
-    },
-    icon: "Feather",
-    genre: "femme",
-  },
-  {
-    id: 25,
+    id: 11,
     axis: "Empathie",
     text: {
       master: "Ressentez-vous profondément les états émotionnels des autres ?",
       dog: "Pensez-vous que votre chien ressent profondément vos états émotionnels ?",
     },
     icon: "HeartPulse",
-    genre: "femme",
+    genre: "all",
   },
+
+  // Protection (1 question au lieu de 2)
   {
-    id: 26,
-    axis: "Empathie",
-    text: {
-      master:
-        "Adaptez-vous votre comportement en fonction de l'humeur des autres ?",
-      dog: "Votre chien adapte-t-il son comportement selon votre humeur ?",
-    },
-    icon: "Workflow",
-    genre: "femme",
-  },
-  {
-    id: 27,
+    id: 12,
     axis: "Protection",
     text: {
       master: "Avez-vous un instinct protecteur marqué envers vos proches ?",
       dog: "Votre chien a-t-il un instinct protecteur marqué envers vous ?",
     },
     icon: "Shield",
-    genre: "femme",
-  },
-  {
-    id: 28,
-    axis: "Protection",
-    text: {
-      master:
-        "Êtes-vous attentif(ve) à votre environnement pour détecter les dangers potentiels ?",
-      dog: "Votre chien surveille-t-il son environnement de manière vigilante ?",
-    },
-    icon: "EyeOff",
-    genre: "femme",
+    genre: "all",
   },
 ];
 
