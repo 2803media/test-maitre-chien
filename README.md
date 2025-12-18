@@ -39,6 +39,7 @@ test-chien-nextjs/
 ## 🚀 Installation et lancement
 
 ### Prérequis
+
 - Node.js 18+ installé
 - npm (livré avec Node.js)
 
@@ -64,23 +65,26 @@ npm run dev
 Lors de `npm install`, les packages suivants seront installés :
 
 ### Production
-- **next** (^14.2.0) - Framework React
-- **react** (^18.3.0) - Bibliothèque UI
-- **react-dom** (^18.3.0) - React DOM
-- **recharts** (^2.12.0) - Bibliothèque de graphiques
-- **lucide-react** (^0.344.0) - Icônes SVG (1000+)
-- **next-themes** (^0.2.1) - Gestion du dark mode
+
+- **next** (^16.0.10) - Framework React
+- **react** (^19.2.2) - Bibliothèque UI
+- **react-dom** (^19.2.2) - React DOM
+- **recharts** (^3.6.0) - Bibliothèque de graphiques
+- **lucide-react** (^0.562.0) - Icônes SVG (1000+)
+- **next-themes** (^0.4.6) - Gestion du dark mode
 
 ### Développement
-- **tailwindcss** (^3.4.1) - Framework CSS utility-first
+
+- **tailwindcss** (^4.0.0) - Framework CSS utility-first
 - **autoprefixer** (^10.4.18) - Préfixes CSS automatiques
 - **postcss** (^8.4.35) - Transformation CSS
-- **eslint** (^8.57.0) - Linter JavaScript
-- **eslint-config-next** (^14.2.0) - Configuration ESLint pour Next.js
+- **eslint** (^9.39.1) - Linter JavaScript
+- **eslint-config-next** (^16.0.9) - Configuration ESLint pour Next.js
 
 ## ✨ Fonctionnalités
 
 ### Interface utilisateur
+
 - ✅ Design ultra-moderne avec Tailwind CSS
 - ✅ Dark mode avec sauvegarde de préférence
 - ✅ Responsive (mobile, tablette, desktop)
@@ -89,6 +93,7 @@ Lors de `npm install`, les packages suivants seront installés :
 - ✅ Scrollbar personnalisée
 
 ### Test de compatibilité
+
 - ✅ Sélection du profil (Homme/Femme/Neutre)
 - ✅ 28 questions adaptatives selon le genre
 - ✅ Affichage progressif des questions
@@ -97,6 +102,7 @@ Lors de `npm install`, les packages suivants seront installés :
 - ✅ Scroll automatique vers nouvelle question
 
 ### Résultats
+
 - ✅ Score de compatibilité global (0-100%)
 - ✅ Interprétation personnalisée
 - ✅ Graphique radar interactif
@@ -123,6 +129,7 @@ npm run lint         # Vérifier le code avec ESLint
 ## 🎨 Personnalisation
 
 ### Changer les couleurs
+
 Éditez `tailwind.config.js` :
 
 ```javascript
@@ -136,6 +143,7 @@ colors: {
 ```
 
 ### Ajouter des questions
+
 Éditez `data/questions.js` :
 
 ```javascript
@@ -149,6 +157,7 @@ colors: {
 ```
 
 ### Modifier les interprétations
+
 Dans `data/questions.js`, section `INTERPRETATIONS` :
 
 ```javascript
@@ -156,24 +165,29 @@ export const INTERPRETATIONS = {
   "90-100": "Votre message pour 90-100%",
   "75-89": "Votre message pour 75-89%",
   // ...
-}
+};
 ```
 
 ## 🔧 Architecture technique
 
 ### App Router de Next.js
+
 Le projet utilise l'**App Router** (nouvelle architecture de Next.js) :
+
 - `app/layout.js` : Layout partagé avec ThemeProvider
 - `app/page.js` : Page principale avec logique du test
 - `app/globals.css` : Styles globaux
 
 ### Composants modulaires
+
 Chaque fonctionnalité est isolée dans son propre composant :
+
 - Réutilisable
 - Testable
 - Maintenable
 
 ### Gestion d'état
+
 - `useState` pour l'état local
 - `useEffect` pour les effets de bord
 - `useRef` pour les références DOM
@@ -202,26 +216,32 @@ Puis configure ton serveur web pour pointer vers le port 3000.
 ## 🐛 Dépannage
 
 ### Port 3000 déjà utilisé
+
 ```bash
 npm run dev -- -p 3001
 ```
 
 ### Erreur "Module not found"
+
 ```bash
 rm -rf node_modules package-lock.json
 npm install
 ```
 
 ### Les icônes ne s'affichent pas
+
 Vérifiez que lucide-react est installé :
+
 ```bash
 npm list lucide-react
 ```
 
 ### Le dark mode ne fonctionne pas
+
 Vérifiez la console du navigateur pour les erreurs.
 
 ### Erreur de build
+
 ```bash
 rm -rf .next
 npm run dev
@@ -230,6 +250,7 @@ npm run dev
 ## 📚 Ressources
 
 ### Documentation
+
 - [Next.js](https://nextjs.org/docs) - Framework
 - [Tailwind CSS](https://tailwindcss.com/docs) - Styling
 - [Lucide Icons](https://lucide.dev/) - Icônes
@@ -237,6 +258,7 @@ npm run dev
 - [next-themes](https://github.com/pacocoursey/next-themes) - Dark mode
 
 ### Tutoriels
+
 - [Next.js Learn](https://nextjs.org/learn) - Tutoriel officiel
 - [Tailwind UI](https://tailwindui.com/) - Composants Tailwind
 
@@ -260,6 +282,7 @@ npm run dev
 ## 🎓 Technologies apprises
 
 En travaillant sur ce projet, vous apprendrez :
+
 - ✅ Next.js App Router
 - ✅ React Hooks (useState, useEffect, useRef)
 - ✅ Tailwind CSS avancé
@@ -293,4 +316,4 @@ Puis ouvre **http://localhost:3000** dans ton navigateur ! 🚀
 
 ---
 
-*Fait avec ❤️ pour les amoureux des chiens* 🐕
+_Fait avec ❤️ pour les amoureux des chiens_ 🐕
