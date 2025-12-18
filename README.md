@@ -357,7 +357,7 @@ Usage personnel et éducatif libre.
 npm install && npm run dev
 ```
 
-Puis ouvre **http://localhost:3000** dans ton navigateur ! 🚀
+Puis ouvre **http://localhost:3010** dans ton navigateur ! 🚀
 
 ---
 
