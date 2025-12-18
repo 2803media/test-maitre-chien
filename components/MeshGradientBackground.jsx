@@ -13,7 +13,7 @@ const MeshGradientBackground = () => {
   if (!isClient) return null;
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-white dark:bg-gray-950">
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-white dark:bg-gray-950 pointer-events-none">
       {/* Blob 1 - Top Left */}
       <motion.div
         className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-50"

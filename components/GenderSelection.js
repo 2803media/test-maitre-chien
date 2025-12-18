@@ -36,7 +36,8 @@ export default function GenderSelection({ onSelect }) {
               </div>
               <span className="text-2xl font-bold">Homme</span>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* ✅ AJOUT DE pointer-events-none - C'était ÇA LE PROBLÈME ! */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </button>
 
           <button
@@ -49,7 +50,8 @@ export default function GenderSelection({ onSelect }) {
               </div>
               <span className="text-2xl font-bold">Femme</span>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            {/* ✅ AJOUT DE pointer-events-none - C'était ÇA LE PROBLÈME ! */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </button>
         </div>
       </div>

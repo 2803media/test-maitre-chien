@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
 /* Reset de base */
 html,
 body,
@@ -30,13 +37,6 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-@layer base {
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
 }
 
 :root {
@@ -157,15 +157,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Amélioration des boutons */
-button {
-  transition: all 0.2s ease;
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
 /* Amélioration des champs de formulaire */
 input,
 textarea,
@@ -231,4 +222,9 @@ select:focus {
 
 .animate-scaleIn {
   animation: scaleIn 0.3s ease-out;
+}
+
+.page-container {
+  position: relative;
+  z-index: 1;
 }
