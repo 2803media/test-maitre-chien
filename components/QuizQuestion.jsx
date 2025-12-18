@@ -158,12 +158,12 @@ export default function QuizQuestion({
           <span className="inline-flex items-center gap-1 text-xs px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">
             {role === "master" ? (
               <>
-                <User className="w-4 h-4 text-indigo-600" />
+                <User className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
                 Maître
               </>
             ) : (
               <>
-                <Dog className="w-4 h-4 text-amber-600" />
+                <Dog className="w-4 h-4 text-amber-600 dark:text-amber-300" />
                 Chien
               </>
             )}
